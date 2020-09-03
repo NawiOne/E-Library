@@ -1,16 +1,356 @@
-* {
+html,
+body {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+/* font */
+@font-face {
+  font-weight: lighter;
+  font-family: "airbnb";
+  src: local("airbnb"),
+    url(./assets/font/AirbnbCerealMedium.woff) format("woff");
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "airbnb";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow-x: hidden;
+  overflow: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.my-container {
+  overflow-x: hidden;
+}
+main {
+  overflow-x: hidden;
+  height: 100vh;
+  margin-top: 63px;
+}
+/* header */
+.header {
+  width: 100%;
+  z-index: 8888;
+  background-color: white;
+}
+.header .menu img {
+  margin-top: 5px;
+  width: 30px;
+  height: 30px;
+}
+.header a {
+  color: black;
+}
+.header img:checked {
+  border: none;
+  outline: none;
+}
+.header img {
+  width: 30px;
+  height: 30px;
+  margin-right: -30px;
+}
+.header .nav-item.arrow img {
+  margin-top: 10px;
+}
+.header .input img {
+  margin-left: 10px;
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+}
+.header .drop {
+  display: none;
+}
+.header .input.search {
+  margin-left: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 0.8px solid rgb(151, 140, 140);
+  width: 40vw;
+  border-radius: 20px;
+  height: 7vh;
+}
+.header .input .form-control {
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  width: 60%;
+}
+.header .input .form-control:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.nav-item.dropdown a:focus,
+.nav-item.dropdown a:link {
+  background: white;
+  color: black;
+}
+.header .nav-item.arrow img {
+  width: 20px;
+  height: 20px;
+}
+.header .logo {
+  display: flex;
+  align-items: flex-end;
+}
+.header select{
+  outline: none;
+  border: none;
+}
+.header select.right{
+margin-left: 10px;
+}
+
+.my-container .nav-hide{
+  font-size: small;
+  color :rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  top: 63px;
+  z-index: 8887;
+  position: fixed;
+  width: 100%;
+  height: 6vh;
+  background-color: rgb(255, 255, 255);
+  transform: translateY(-150%);
+  transition: 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.my-container .nav-hide.show{
+  transform: translateY(0);
+  transition: 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.my-container .nav-hide select{
+  font-size: smaller;
+  border: none;
+  outline: none;
+  margin: 10px;
+}
+
+
+
+  /* .right-bar */
+.right-bar {
+  font-size: small;
+  padding: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  position: fixed;
+  height: 100vh;
+  transform: translate(-100%);
+  transition: 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  background-color: rgb(255, 255, 255);
+  z-index: 9999;
+}
+.right-bar.show {
+  transform: translate(0);
+  transition: 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.right-bar .menu {
+  align-self: flex-end;
+}
+.right-bar .pic {
+  width: 13vw;
+  height: 18vh;
+  margin-top: 40px;
+  align-self: center;
+  text-align: center;
+  justify-content: center;
+}
+.right-bar .pic img {
+  height: 50%;
+  width: 100%;
+  border-radius: 50%;
+}
+.right-bar .navs {
+  margin-top: 10vh;
+  color: black;
+}
+.right-bar button{
+  margin-top: 6px;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+
+/* modal  */
+.modal.add .modal-header{
+  border: none;
+}
+.modal.add .row{
+  margin-bottom: 20px;
+}
+.modal.add .row input, textarea{
+  border-radius: 10px;
+  width: 85%;
+  margin-left: 35px;
+}
+.modal.add .row input{
+  height: 5vh ;
+}
+.modal.add .row input.upload:focus{
+  outline: none;
+  border: none;
+}
+.modal.add .row textarea{
+  height: 15vh ;
+}
+.modal.add  .modal-footer .btn-save{
+  background-color: #FBCC38;;
+}
+
+
+/* .drobmenu.{
+  display: blo;
+} */
+
+main .topslider {
+  padding-top: 50px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 22%;
+  /* margin-top: 50px; */
+  /* padding: 20px 0; */
+  font-size: 1em;
+}
+
+
+.corousel{
+  margin-top: 20px;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  /* background-color: red; */
+}
+.corousel .carousel.slide{
+  width: 100%;
+  border-radius: 15px;
+}
+.corousel .carousel-inner{
+  border-radius: 15px;
+}
+
+.corousel .carousel-inner img{
+  border-radius: 15px;
+  width: 100%;
+  height: 30vh;
+}
+.corousel .prev{
+  background-color: blue;
+  width: 50px;
+  height: 50px;
+}
+.corousel .next{
+  background-color: blue;
+  width: 50px;
+  height: 50px;
+}
+
+
+.listbook{
+  margin-top: 20px;
+  /* padding-left: 55px; */
+  padding: 50px;
+}
+.listbook .row .item{
+  margin-bottom: 20px;
+  display: flex;
+  /* border: 1px solid black; */
+  height: 40vh;
+  width: 10vw; 
+  justify-content: center;
+}
+.listbook .row .card{
+  overflow: hidden;
+  border-radius: 15px;
+  /* margin-bottom: 20px; */
+  width: 70%;
+  height: 100%;
+}
+.listbook .row .card .card-body{
+  font-size: small;
+  padding-bottom: 50px;
+}
+.listbook .row .card img{
+  width: 100%;
+  height: 65%;
+}
+.listbook .title{
+  margin-top: 20px;
+  padding-left: 45px;
+  padding-bottom: 20px;
+}
+.listbook .title h3{
+  font-weight: bold;
+}
+/* .listbook .row .card.body p.{
+  font-size: 3px;
+} */
+
+
+
+
+
+
+
+
+
+
+/* responsive */
+@media screen and (min-width: 768px) {
+  .my-container .nav-hide{
+    display: none;
+  }
+  .header .drop {
+    display: flex;
+  }
+  .header .input {
+    margin-left: 0;
+    width: 25vw;
+  }
+  .header .nav-item.arrow img {
+    display: none;
+  }
+  .right-bar .pic img {
+    height: 100%;
+    width: 78%;
+    border-radius: 50%;
+  }
+}
+@media screen and (min-width : 576px){
+
+  .corousel .carousel.slide{
+    width: 40%
+  }
+}
+@media screen and (max-width: 576px){
+  .corousel{
+    margin-top: 0;
+    padding: 0;
+  }
+  .corousel .next, .corousel .prev{
+    display: none;
+  }
+  .corousel .carousel-inner img{
+    height: 300px;
+  }
 }
