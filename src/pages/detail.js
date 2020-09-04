@@ -1,5 +1,8 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+
+
 import '../assets/css/detail-page.css';
 import Header from '../components/detail/header';
 import ModalEdit from "../components/detail/modalEdit";
@@ -34,4 +37,12 @@ class DetailPage extends React.Component {
         );
     }
 }
-export default DetailPage;
+
+const mapStateToProps = (state) =>{
+    const {book} = state;
+    return{
+        book
+    }
+}
+
+export default connect(mapStateToProps, null)(DetailPage);
