@@ -1,7 +1,4 @@
 import React from "react";
-// import Axios from "axios";
-// import {connect} from 'react-redux';
-// import {insertMenuCreator} from '../redux/actions/menuAndCart';
 
 class ModalAdd extends React.Component {
 
@@ -9,11 +6,11 @@ class ModalAdd extends React.Component {
     return (
       <>
   
-        <div className="modal add fade" id="modal-add" tabIndex="-1" aria-labelledby="modal-add" aria-hidden="true">
+        <div className="modal add fade" id="modal-edit" tabIndex="-1" aria-labelledby="modal-add" aria-hidden="true">
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="modal-add">Add Data</h5>
+                <h5 className="modal-title" id="modal-add">Edit Data</h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>

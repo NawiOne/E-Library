@@ -14,10 +14,7 @@ const AppRedux = () => {
     <App/>
   </Provider>
   )
-  
 }
-
-
 ReactDOM.render(
   <React.StrictMode>
     <AppRedux/>

@@ -36,6 +36,8 @@ main {
   height: 100vh;
   margin-top: 63px;
 }
+
+
 /* header */
 .header {
   width: 100%;
@@ -72,6 +74,7 @@ main {
   display: none;
 }
 .header .input.search {
+  z-index: 99999;
   margin-left: 40px;
   display: flex;
   justify-content: flex-start;
@@ -82,6 +85,7 @@ main {
   height: 7vh;
 }
 .header .input .form-control {
+  z-index: -1;
   margin-left: 10px;
   border: none;
   outline: none;
@@ -177,6 +181,7 @@ margin-left: 10px;
   border-radius: 50%;
 }
 .right-bar .navs {
+  text-align: left;
   margin-top: 10vh;
   color: black;
 }
@@ -195,6 +200,12 @@ margin-left: 10px;
 .modal.add .row{
   margin-bottom: 20px;
 }
+.modal.add input.upload{  
+  height: 10vh;
+  border-radius: 0;
+
+  outline: none;
+}
 .modal.add .row input, textarea{
   border-radius: 10px;
   width: 85%;
@@ -208,16 +219,38 @@ margin-left: 10px;
   border: none;
 }
 .modal.add .row textarea{
+  font-size: small;
+  padding: 10px;
+
   height: 15vh ;
+  border: .3px solid rgb(230, 216, 216);
+}
+.modal.add .row textarea:focus{
+  border-radius: 10px;
+  border: none;
+  outline: .3px solid rgb(230, 216, 216);
 }
 .modal.add  .modal-footer .btn-save{
   background-color: #FBCC38;;
 }
 
+/* modal delete */
+.modal.delete .modal-header{
+  border : none;
+}
+.modal.delete .modal-body{
+  padding-bottom: -10px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+.modal.delete .modal-body img{
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+}
 
-/* .drobmenu.{
-  display: blo;
-} */
+
+
 
 main .topslider {
   padding-top: 50px;
@@ -225,21 +258,24 @@ main .topslider {
   display: flex;
   justify-content: space-between;
   height: 22%;
-  /* margin-top: 50px; */
-  /* padding: 20px 0; */
   font-size: 1em;
 }
 
 
+
+
+
+
+
+/* Carousel */
 .corousel{
-  margin-top: 20px;
+  margin-top: 40px;
   padding: 20px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 100%;
-  /* background-color: red; */
 }
 .corousel .carousel.slide{
   width: 100%;
@@ -252,29 +288,51 @@ main .topslider {
 .corousel .carousel-inner img{
   border-radius: 15px;
   width: 100%;
-  height: 30vh;
+  height: 40vh;
 }
 .corousel .prev{
-  background-color: blue;
-  width: 50px;
-  height: 50px;
+  border-radius: 0 15px 15px 0;
+  background-color: rgb(80, 80, 95);
+  width: 15vw;
+  height: 25vh;
+}
+.carousel-control-prev{
+  z-index: 88;
 }
 .corousel .next{
-  background-color: blue;
-  width: 50px;
-  height: 50px;
+  border-radius: 15px 0 0 15px;
+  background-color: rgb(116, 116, 128);
+  width: 15vw;
+  height: 25vh;
+}
+.carousel-control-next{
+  z-index: 88;
+}
+.carousel-caption{
+  text-align: left;
+  padding: 20px;
+  padding-bottom: 70px;
+  overflow: hidden;
+  font-size: small;
+  background-color: rgba(94, 45, 45, 0.6);
+  width: 100%;
+  height: 40%;
+  left: 0;
+  bottom: 0;
 }
 
 
+
+/* List book */
 .listbook{
+  margin-left: 4vw ;
   margin-top: 20px;
-  /* padding-left: 55px; */
   padding: 50px;
+  margin-bottom: 20px;
 }
 .listbook .row .item{
   margin-bottom: 20px;
   display: flex;
-  /* border: 1px solid black; */
   height: 40vh;
   width: 10vw; 
   justify-content: center;
@@ -282,22 +340,29 @@ main .topslider {
 .listbook .row .card{
   overflow: hidden;
   border-radius: 15px;
-  /* margin-bottom: 20px; */
   width: 70%;
   height: 100%;
 }
 .listbook .row .card .card-body{
   font-size: small;
+}
+.listbook .row .card .card-body .bt{
+  margin-top: -15px;
+}
+.listbook .row .card .card-body .card-text{
+  margin-top: -10px;
+  font-size: 10px;
   padding-bottom: 50px;
 }
 .listbook .row .card img{
   width: 100%;
   height: 65%;
+  object-fit: cover;
 }
 .listbook .title{
-  margin-top: 20px;
-  padding-left: 45px;
-  padding-bottom: 20px;
+  margin-top: 100px;
+  padding-left: 60px;
+  padding-bottom: 15px;
 }
 .listbook .title h3{
   font-weight: bold;
@@ -305,12 +370,6 @@ main .topslider {
 .listbook .row .card.body p{
   font-size: 3px;
 }
-
-
-
-
-
-
 
 
 
@@ -352,5 +411,10 @@ main .topslider {
   }
   .corousel .carousel-inner img{
     height: 300px;
+  }
+  .listbook .title{
+    padding-left: 0;
+    text-align:center;
+  
   }
 }
