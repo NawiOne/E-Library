@@ -7,7 +7,6 @@ import ListBook from "../components/listBook";
 import ModalAdd from '../components/modalAdd';
 import NavHide from "../components/nav-hide";
 import Corousel from "../components/corousel";
-// import Slideshow from "../components/slideTest";
 
 
 class Home extends React.Component {

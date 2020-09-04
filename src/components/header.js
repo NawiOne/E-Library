@@ -13,18 +13,19 @@ import {clickLeftBarCreator, clickNavcreator} from '../redux/actions/animate';
 const Header = (props) => {
     return (
         <>
-            <ul className='nav header nav-pills d-flex justify-content-between shadow p-2 fixed-top'>
+            <ul className={!props.animate.navDisplay ?  'nav header nav-pills d-flex justify-content-between shadow p-2 fixed-top'
+        : 'nav header nav-pills d-flex justify-content-between p-2 fixed-top'}>
                 <li className='nav-item menu ml-2 ' onClick={() => props.clickLeftBarCreator()}>
                     <img src={menu} alt="menu"></img>
                 </li>
                 <div className='drop ml-5'>
-                    <select class="" id="">
+                    <select className="" id="">
                         <option>All Categories</option>
                         <option>Romance</option>
                         <option>Action</option>
                         <option>Science fiction</option>
                     </select>
-                    <select class="right" id="">
+                    <select className="right" id="">
                         <option>All times</option>
                         <option>2010</option>
                         <option>2015</option>
@@ -35,37 +36,44 @@ const Header = (props) => {
                 </div>
                 <div className='input search'>
                     <img src={glass} alt='logo' />
-                    <input class='form-control' type='text' placeholder='search' />
+                    <input className='form-control' type='text' placeholder='search' />
                 </div>
                 <li className='nav-item arrow' onClick={() => props.clickNavcreator()}>
                     <img src={arrow} alt='logo' />
                 </li>
                 <div className='logo'>
                     <li className='nav-item' >
-                        <a
-                            className='nav-link'
+                        <button
+                            className='nav-link lib'
                             href='home'
-                            tabindex='-1'
+                            tabIndex='-1'
                             aria-disabled='true'
                         >
                             <img src={Liblogo} alt='logo' />
-                        </a>
+                        </button>
                     </li>
                     <li className='nav-item'>
-                        <a
-                            className='nav-link'
+                        <button
+                            className='nav-link lib'
                             href='home'
-                            tabindex='-1'
+                            tabIndex='-1'
                             aria-disabled='true'
                         >
                             Library
-                    </a>
+                    </button>
                     </li>
                 </div>
             </ul>
         </>
     );
 };
+const mapStateToProps= (state) =>{
+    const {animate} = state;
+    return{
+        animate,
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         clickNavcreator: () => {
@@ -78,4 +86,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -43,7 +43,6 @@ body {
   margin-top: -50px;
   z-index: -1;
   height: 40vh;
-  background-color: red;
 }
 .detail-page .header-detail img {
   height: 100%;
@@ -68,11 +67,12 @@ body {
   align-items: center;
 }
 .detail-page .content .category {
+    margin-bottom: 5px;
   color: white;
   display: flex;
   align-items: center;
   border-radius: 20px;
-  height: 5vh;
+  height: 3.5vh;
 }
 
 .detail-page .description {

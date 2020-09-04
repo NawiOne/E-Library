@@ -28,15 +28,19 @@ code {
     monospace;
 }
 
-.my-container {
-  overflow-x: hidden;
-}
 main {
+  position: relative;
   overflow-x: hidden;
   height: 100vh;
   margin-top: 63px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+    scrollbar-width: none;
 }
-
+main::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
 
 /* header */
 .header {
@@ -44,8 +48,13 @@ main {
   z-index: 8888;
   background-color: white;
 }
+.header button.lib{
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
 .header .menu img {
-  margin-top: 5px;
+  margin-top: 10px;
   width: 30px;
   height: 30px;
 }
@@ -117,13 +126,17 @@ main {
 margin-left: 10px;
 }
 
+
+.my-container{
+  overflow: hidden;
+}
 .my-container .nav-hide{
   font-size: small;
   color :rgb(0, 0, 0);
   display: flex;
   justify-content: center;
   align-content: center;
-  top: 63px;
+  top: 60px;
   z-index: 8887;
   position: fixed;
   width: 100%;
@@ -158,7 +171,7 @@ margin-left: 10px;
   transform: translate(-100%);
   transition: 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
   background-color: rgb(255, 255, 255);
-  z-index: 9999;
+  z-index: 9998;
 }
 .right-bar.show {
   transform: translate(0);
@@ -269,7 +282,7 @@ main .topslider {
 
 /* Carousel */
 .corousel{
-  margin-top: 40px;
+  margin-top: 65px;
   padding: 20px 0;
   display: flex;
   justify-content: space-between;
@@ -286,24 +299,37 @@ main .topslider {
 }
 
 .corousel .carousel-inner img{
-  border-radius: 15px;
+  /* border-radius: 15px; */
   width: 100%;
   height: 40vh;
+  object-fit: cover;
 }
 .corousel .prev{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 0 15px 15px 0;
-  background-color: rgb(80, 80, 95);
-  width: 15vw;
-  height: 25vh;
+  background-color: rgb(209, 209, 224);
+  width: 10vw;
+  height: 13vh;
+}
+.corousel .prev:hover{
+  background-color: rgb(227, 227, 238);
 }
 .carousel-control-prev{
   z-index: 88;
 }
 .corousel .next{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 15px 0 0 15px;
-  background-color: rgb(116, 116, 128);
-  width: 15vw;
-  height: 25vh;
+  background-color: rgb(209, 209, 224);
+  width: 10vw;
+  height: 13vh;
+}
+.corousel .next:hover{
+  background-color: rgb(227, 227, 238);
 }
 .carousel-control-next{
   z-index: 88;
@@ -320,18 +346,30 @@ main .topslider {
   left: 0;
   bottom: 0;
 }
+.carousel-control-prev-custom, .carousel-control-next-custom{
+  background: none;
+  border: none;
+  outline: none;
+  width: 100px;
+  height: 100px;
+}
+.carousel-control-prev-custom:focus, .carousel-control-next-custom:focus{
+  background: none;
+  border: none;
+  outline: none;
+}
 
 
 
 /* List book */
 .listbook{
   margin-left: 4vw ;
-  margin-top: 20px;
+  margin-top: 70px;
   padding: 50px;
   margin-bottom: 20px;
 }
 .listbook .row .item{
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   display: flex;
   height: 40vh;
   width: 10vw; 
@@ -347,16 +385,21 @@ main .topslider {
   font-size: small;
 }
 .listbook .row .card .card-body .bt{
+  font-size: 16px;
+  font-weight: bold;
   margin-top: -15px;
+}
+.listbook .row .card .link-to{
+  height: 65%;
 }
 .listbook .row .card .card-body .card-text{
   margin-top: -10px;
-  font-size: 10px;
+  font-size: 14px;
   padding-bottom: 50px;
 }
 .listbook .row .card img{
   width: 100%;
-  height: 65%;
+  height: 100%;
   object-fit: cover;
 }
 .listbook .title{
@@ -396,6 +439,10 @@ main .topslider {
   }
 }
 @media screen and (min-width : 576px){
+  .right-bar {
+    font-size: large;
+  
+  }
 
   .corousel .carousel.slide{
     width: 40%
@@ -403,7 +450,7 @@ main .topslider {
 }
 @media screen and (max-width: 576px){
   .corousel{
-    margin-top: 0;
+    margin-top: 40px;
     padding: 0;
   }
   .corousel .next, .corousel .prev{

@@ -1,7 +1,8 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import '../assets/css/detail-page.css';
 import Header from '../components/detail/header';
-import ModalEdit from "../components/detail/modalEdit"
+import ModalEdit from "../components/detail/modalEdit";
 
 import back from '../assets/images/back.png'
 import Content from '../components/detail/content';
@@ -14,13 +15,14 @@ class DetailPage extends React.Component {
                 <ModalEdit />
                 <ModalDel/>
                 <div className="detail-page">
-                    <nav class="nav p-1">
+                    <nav className="nav p-1">
                         <div className="round">
-                            <img alt="back" src={back} />
+
+                           <Link to="/"><img alt="back" src={back} /></Link> 
                         </div>
                         <div className="d-flex">
-                            <button class="nav-link" data-target="#modal-edit" data-toggle="modal">Edit</button>
-                            <button class="nav-link" data-target="#modal-delete" data-toggle="modal">Delete</button>
+                            <button className="nav-link" data-target="#modal-edit" data-toggle="modal"><span className="font-weight-bold">Edit</span></button>
+                            <button className="nav-link" data-target="#modal-delete" data-toggle="modal"><span className="font-weight-bold">Delete</span></button>
                         </div>
                     </nav>
                     <Header/>

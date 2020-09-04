@@ -4,21 +4,19 @@ import {connect} from 'react-redux';
 const NavHide = (props) => {
     return (
         <div className={props.animate.navDisplay ?'nav-hide shadow show' : 'nav-hide shadow '}>
-            <select class="" id="">
+            <select className="" id="">
                 <option>All Categories</option>
                 <option>Romance</option>
                 <option>Action</option>
                 <option>Science fiction</option>
             </select>
-            <select class="" id="">
+            <select className="" id="">
                 <option>All times</option>
                 <option>2010</option>
                 <option>2015</option>
                 <option>2017</option>
                 <option>2020</option>
-            </select>
-
-            
+            </select>       
         </div>
     );
 };
