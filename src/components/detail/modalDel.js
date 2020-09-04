@@ -4,7 +4,7 @@ import cheked from '../../assets/images/checked.png'
 const ModalDel = () => {
     return (
         <div class="modal fade delete" tabindex="-1" id="modal-delete">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
