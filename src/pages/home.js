@@ -9,7 +9,9 @@ import NavHide from "../components/nav-hide";
 import Corousel from "../components/corousel";
 
 
+
 class Home extends React.Component {
+  
   render() {
     return (
       <>
@@ -18,13 +20,13 @@ class Home extends React.Component {
           <RightBar />
           <Header />
           <NavHide/>
-          <main className=''>
+          <main className='dddd'>
             <div className='row topslider'>
               {/*<TopSlider/>*/} 
-              <Corousel/>
+              <Corousel key={2323}/>
             </div>
             <div className='listbook'>
-              <ListBook/>
+              <ListBook key={212212}/>
             </div>
           </main>
         </div>

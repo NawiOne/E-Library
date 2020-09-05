@@ -1,9 +1,18 @@
-import {getBookAction, addDetailAction, pending, fulfilled, rejected} from '../actions/actionType';
+import {
+    getBookAction,
+    addDetailAction,
+    delBookAction,
+    pageAction,
+    pending,
+    fulfilled,
+    rejected
+} from '../actions/actionType';
 
 
 const initialState = {
     data: [],
-    bookDetail : {},
+    pageInfo: {},
+    bookDetail: {},
     error: '',
     isPending: false,
     isfulfilled: false,
@@ -25,24 +34,36 @@ const book = (prevState = initialState, {type, payload}) => {
                 isPending: false
             };
         case getBookAction + fulfilled:
+            console.log(payload)
             return {
                 ...prevState,
-                isfulfilled : true,
+                isfulfilled: true,
                 data: payload.data.data,
-                isPending: false
+                isPending: false,
+                pageInfo:payload.data.pageInfo
             };
         case addDetailAction:
- 
-            if (payload.id === prevState.bookDetail.id){
-                return{
+
+            if(payload.id === prevState.bookDetail.id) {
+                return {
                     ...prevState,
-                }
-            } else{
-                
-                return{
+                };
+            } else {
+                return {
                     ...prevState,
-                    bookDetail : {...payload}
-                }
+                    bookDetail: {...payload}
+                };
+
+            }
+        case delBookAction:
+            return{
+                ...prevState,
+            }
+        case pageAction + fulfilled:
+            return{
+                ...prevState,
+                data: payload.data.data,
+                pageInfo: payload.data.pageInfo
             }
 
         default:

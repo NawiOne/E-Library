@@ -1,5 +1,5 @@
-import {getBook} from '../../utils/http';
-import {getBookAction, addDetailAction} from './actionType';
+import {getBook, delBook, pageBook} from '../../utils/http';
+import {getBookAction, addDetailAction, delBookAction, pageAction} from './actionType';
 
 export const getBookCreator = () => {
     return {
@@ -8,7 +8,7 @@ export const getBookCreator = () => {
     };
 };
 
-export const addDetailCreator = (id, title, genre, image, year, synopsis) => {
+export const addDetailCreator = (id, title, genre, image, year, synopsis, author, qty) => {
     return {
         type: addDetailAction,
         payload: {
@@ -18,7 +18,22 @@ export const addDetailCreator = (id, title, genre, image, year, synopsis) => {
             image: image,
             realease_year: year,
             synopsis: synopsis,
-
+            author: author,
+            qty: qty
         }
     };
 };
+
+export const delBookCreator = (id) =>{
+    return {
+        type: delBookAction,
+        payload: delBook(id)
+    }
+}
+
+export const PageCreator = (params) =>{
+    return {
+        type : pageAction,
+        payload: pageBook(params)
+    }
+}

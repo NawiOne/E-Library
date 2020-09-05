@@ -20,7 +20,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   overflow-x: hidden;
-  overflow: hidden;
+  overflow-y: scroll;
 }
 
 code {
@@ -35,7 +35,7 @@ main {
   margin-top: 63px;
   overflow-y: scroll;
   -ms-overflow-style: none;
-    scrollbar-width: none;
+  scrollbar-width: none;
 }
 main::-webkit-scrollbar {
   width: 0;
@@ -48,7 +48,7 @@ main::-webkit-scrollbar {
   z-index: 8888;
   background-color: white;
 }
-.header button.lib{
+.header button.lib {
   border: none;
   outline: none;
   background-color: transparent;
@@ -118,21 +118,20 @@ main::-webkit-scrollbar {
   display: flex;
   align-items: flex-end;
 }
-.header select{
+.header select {
   outline: none;
   border: none;
 }
-.header select.right{
-margin-left: 10px;
+.header select.right {
+  margin-left: 10px;
 }
 
-
-.my-container{
+.my-container {
   overflow: hidden;
 }
-.my-container .nav-hide{
+.my-container .nav-hide {
   font-size: small;
-  color :rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
   display: flex;
   justify-content: center;
   align-content: center;
@@ -145,20 +144,18 @@ margin-left: 10px;
   transform: translateY(-150%);
   transition: 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-.my-container .nav-hide.show{
+.my-container .nav-hide.show {
   transform: translateY(0);
   transition: 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-.my-container .nav-hide select{
+.my-container .nav-hide select {
   font-size: smaller;
   border: none;
   outline: none;
   margin: 10px;
 }
 
-
-
-  /* .right-bar */
+/* .right-bar */
 .right-bar {
   font-size: small;
   padding: 20px;
@@ -198,72 +195,87 @@ margin-left: 10px;
   margin-top: 10vh;
   color: black;
 }
-.right-bar button{
+.right-bar button {
   margin-top: 6px;
   border: none;
   outline: none;
   background: none;
 }
 
-
 /* modal  */
-.modal.add .modal-header{
+.modal.add .modal-header {
+  margin-bottom: -1vh;
   border: none;
 }
-.modal.add .row{
-  margin-bottom: 20px;
+.modal.add .modal-footer {
+  margin-top: -2vh;
+  border: none;
 }
-.modal.add input.upload{  
+.modal.add .row {
+  margin-bottom: 1vh;
+}
+.modal.add input.upload {
   height: 10vh;
   border-radius: 0;
 
   outline: none;
 }
-.modal.add .row input, textarea{
+.modal.add .row input,
+textarea {
   border-radius: 10px;
   width: 85%;
   margin-left: 35px;
 }
-.modal.add .row input{
-  height: 5vh ;
-}
-.modal.add .row input.upload:focus{
+.modal.add .row input.upload::-webkit-file-upload-button {
   outline: none;
   border: none;
 }
-.modal.add .row textarea{
+
+.modal.add .row select {
+  border-radius: 10px;
+  width: 85%;
+  margin-left: 35px;
+}
+.modal.add .row input {
+  height: 5vh;
+}
+.modal.add .row.quantity {
+  margin-top: -3vh;
+}
+.modal.add .row input.upload:focus {
+  outline: none;
+  border: none;
+}
+.modal.add .row textarea {
   font-size: small;
   padding: 10px;
 
-  height: 15vh ;
-  border: .3px solid rgb(230, 216, 216);
+  height: 15vh;
+  border: 0.3px solid rgb(230, 216, 216);
 }
-.modal.add .row textarea:focus{
+.modal.add .row textarea:focus {
   border-radius: 10px;
   border: none;
-  outline: .3px solid rgb(230, 216, 216);
+  outline: 0.3px solid rgb(230, 216, 216);
 }
-.modal.add  .modal-footer .btn-save{
-  background-color: #FBCC38;;
+.modal.add .modal-footer .btn-save {
+  background-color: #fbcc38;
 }
 
 /* modal delete */
-.modal.delete .modal-header{
-  border : none;
+.modal.delete .modal-header {
+  border: none;
 }
-.modal.delete .modal-body{
+.modal.delete .modal-body {
   padding-bottom: -10px;
   padding-bottom: 30px;
   text-align: center;
 }
-.modal.delete .modal-body img{
+.modal.delete .modal-body img {
   width: 120px;
   height: 120px;
   margin-bottom: 10px;
 }
-
-
-
 
 main .topslider {
   padding-top: 50px;
@@ -274,14 +286,8 @@ main .topslider {
   font-size: 1em;
 }
 
-
-
-
-
-
-
 /* Carousel */
-.corousel{
+.corousel {
   margin-top: 65px;
   padding: 20px 0;
   display: flex;
@@ -290,21 +296,21 @@ main .topslider {
   width: 100%;
   height: 100%;
 }
-.corousel .carousel.slide{
+.corousel .carousel.slide {
   width: 100%;
   border-radius: 15px;
 }
-.corousel .carousel-inner{
+.corousel .carousel-inner {
   border-radius: 15px;
 }
 
-.corousel .carousel-inner img{
+.corousel .carousel-inner img {
   /* border-radius: 15px; */
   width: 100%;
   height: 40vh;
   object-fit: cover;
 }
-.corousel .prev{
+.corousel .prev {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -313,13 +319,13 @@ main .topslider {
   width: 10vw;
   height: 13vh;
 }
-.corousel .prev:hover{
+.corousel .prev:active {
   background-color: rgb(227, 227, 238);
 }
-.carousel-control-prev{
+.carousel-control-prev {
   z-index: 88;
 }
-.corousel .next{
+.corousel .next {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -328,13 +334,13 @@ main .topslider {
   width: 10vw;
   height: 13vh;
 }
-.corousel .next:hover{
+.corousel .next:active {
   background-color: rgb(227, 227, 238);
 }
-.carousel-control-next{
+.carousel-control-next {
   z-index: 88;
 }
-.carousel-caption{
+.carousel-caption {
   text-align: left;
   padding: 20px;
   padding-bottom: 70px;
@@ -346,80 +352,114 @@ main .topslider {
   left: 0;
   bottom: 0;
 }
-.carousel-control-prev-custom, .carousel-control-next-custom{
+.carousel-control-prev-custom,
+.carousel-control-next-custom {
   background: none;
   border: none;
   outline: none;
   width: 100px;
   height: 100px;
 }
-.carousel-control-prev-custom:focus, .carousel-control-next-custom:focus{
+.carousel-control-prev-custom:focus,
+.carousel-control-next-custom:focus {
   background: none;
   border: none;
   outline: none;
 }
 
-
-
 /* List book */
-.listbook{
-  margin-left: 4vw ;
+.listbook {
+  margin-left: 4vw;
   margin-top: 70px;
   padding: 50px;
   margin-bottom: 20px;
 }
-.listbook .row .item{
+.listbook .row .item {
   margin-bottom: 30px;
   display: flex;
   height: 40vh;
-  width: 10vw; 
+  width: 10vw;
   justify-content: center;
 }
-.listbook .row .card{
+.listbook .row .card {
   overflow: hidden;
   border-radius: 15px;
   width: 70%;
   height: 100%;
 }
-.listbook .row .card .card-body{
+.listbook .row .card .card-body {
   font-size: small;
 }
-.listbook .row .card .card-body .bt{
+.listbook .row .card .card-body .bt {
   font-size: 16px;
   font-weight: bold;
   margin-top: -15px;
 }
-.listbook .row .card .link-to{
+.listbook .row .card .link-to {
   height: 65%;
 }
-.listbook .row .card .card-body .card-text{
+.listbook .row .card .card-body .card-text {
   margin-top: -10px;
   font-size: 14px;
   padding-bottom: 50px;
 }
-.listbook .row .card img{
+.listbook .row .card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.listbook .title{
+.listbook .title {
   margin-top: 100px;
-  padding-left: 60px;
+  padding-left: 6vw;
   padding-bottom: 15px;
 }
-.listbook .title h3{
+.listbook .title h3 {
   font-weight: bold;
 }
-.listbook .row .card.body p{
+.listbook .row .card.body p {
   font-size: 3px;
 }
 
+.pagination .col-12{
+  display: flex;
+  justify-content: center;
+  padding: 0 5.5vw;
+}
+.pagination .page-item button{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background-color: rgb(37, 139, 223);
+  width: 8vw;
+  height: 7vh;
+  margin: 8px;
+}
+.pagination .page-item button:hover{
+  background-color: rgb(52, 153, 236);
+}
+.pagination .page-item button:focus{
+  outline: none;
+  border: none;
+  background-color: none;
+}
+.pagination .page-item button img{
+ margin-right: -10px;
+ width: 4vw;
+}
+
+.spinner{
+  width: 100%;
+}
+.spinner .col-12{
+  display: flex;
+  justify-content: center;
+}
 
 
 
 /* responsive */
 @media screen and (min-width: 768px) {
-  .my-container .nav-hide{
+  .my-container .nav-hide {
     display: none;
   }
   .header .drop {
@@ -437,31 +477,37 @@ main .topslider {
     width: 78%;
     border-radius: 50%;
   }
-}
-@media screen and (min-width : 576px){
-  .right-bar {
-    font-size: large;
-  
+  .pagination .col-12{
+    justify-content: flex-start;
   }
 
-  .corousel .carousel.slide{
-    width: 40%
-  }
+ 
+
 }
-@media screen and (max-width: 576px){
-  .corousel{
+@media screen and (min-width: 576px) {
+  .right-bar {
+    font-size: large;
+  }
+
+  .corousel .carousel.slide {
+    width: 40%;
+  }
+ 
+}
+@media screen and (max-width: 576px) {
+  .corousel {
     margin-top: 40px;
     padding: 0;
   }
-  .corousel .next, .corousel .prev{
+  .corousel .next,
+  .corousel .prev {
     display: none;
   }
-  .corousel .carousel-inner img{
+  .corousel .carousel-inner img {
     height: 300px;
   }
-  .listbook .title{
+  .listbook .title {
     padding-left: 0;
-    text-align:center;
-  
+    text-align: center;
   }
 }
