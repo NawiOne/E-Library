@@ -18,3 +18,7 @@ export const searchBook = (title) =>{
     const url = process.env.REACT_APP_BOOK
     return Axios.get(`${url}?page=1&limit=6&title=${title}&sortby=title&order=ASC`)
 }
+// export const sortByCAt = (cat) =>{
+//     const url = process.env.REACT_APP_BOOK
+//     return Axios.get(`${url}?page=1&limit=6&sortby=${cat}&order=ASC`)
+// }
