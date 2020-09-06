@@ -6,6 +6,7 @@ import {getBookCreator, addDetailCreator, PageCreator} from '../redux/actions/bo
 import next from '../assets/images/next.png';
 import prev from '../assets/images/prev.png';
 import spinner from '../assets/images/Spinner.gif';
+import empty from '../assets/images/bookEmpty.jpg'
 
 
 
@@ -18,13 +19,13 @@ class ListBook extends React.Component {
         return (
             <>
                 <div className="row">
-                    <div className="col-12 title">
+                    <div className="col-12 title" onClick={() => this.props.getBookCreator()}>
                         <h3 className="mb-4">List Book</h3>
                     </div>
                 </div>
                 <div className="row">
                     {this.props.book.isfulfilled === true ?
-                        this.props.book.data.length ?
+                        this.props.book.data !== undefined ?
                             this.props.book.data.map((item) => {
                                 return (
                                     <div className="col-12 col-sm-6 col-md-4 item" key={item.id}>
@@ -49,9 +50,9 @@ class ListBook extends React.Component {
                                         </div>
                                     </div>
                                 );
-                            }) : <div className="row spinner">
+                            }) : <div className="row spinner empty" onClick={() => this.props.getBookCreator()}>
                                 <div className="col-12">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQzibBVD9w_go7Ofo5BK44_ufJf_y7qQAoPKg&usqp=CAU" alt="spinner" />
+                                    <img src={empty} alt="spinner" />
                                 </div>
                             </div>
                         : <div className="row spinner">
@@ -66,30 +67,39 @@ class ListBook extends React.Component {
                         <nav aria-label="Page navigation example ">
                             <ul className="pagination pagination-lg">
                                 <li className="page-item">
-                                    {this.props.book.pageInfo.prevPage !== "" ?
-                                        <button className="page-link " aria-label="Previous" onClick={() =>
+                                {this.props.book.pageInfo === undefined ?
+                                    <button className="page-link " aria-label="Previous" disabled>
+                                        <img src={prev} alt="prev"></img>
+                                        <img src={prev} alt="next"></img>
+                                    </button>
+                                    : this.props.book.pageInfo.prevPage === "" ?
+                                        <button className="page-link " aria-label="Previous" disabled>
+                                            <img src={prev} alt="prev"></img>
+                                            <img src={prev} alt="next"></img>
+                                        </button>
+                                        : <button className="page-link " aria-label="Previous" onClick={() =>
                                             this.props.PageCreator(this.props.book.pageInfo.prevPage)}>
-                                            <img src={prev} alt="prev"></img>
-                                            <img src={prev} alt="prev"></img>
+                                            <img src={prev} alt="next"></img>
+                                            <img src={prev} alt="next"></img>
                                         </button>
-                                        : <button className="page-link " aria-label="Previous" disabled>
-                                            <img src={prev} alt="prev"></img>
-                                            <img src={prev} alt="prev"></img>
-                                        </button>
-                                    }
-
+                                }
                                 </li>
                                 <li className="page-item">
-                                    {this.props.book.pageInfo.nextPage !== "" ?
-                                        <button className="page-link " aria-label="Previous" onClick={() =>
-                                            this.props.PageCreator(this.props.book.pageInfo.nextPage)}>
-                                            <img src={next} alt="next"></img>
-                                            <img src={next} alt="next"></img>
-                                        </button>
-                                        : <button className="page-link " aria-label="Previous" disabled>
+                                    {this.props.book.pageInfo === undefined ?
+                                        <button className="page-link " aria-label="Previous" disabled>
                                             <img src={next} alt="prev"></img>
                                             <img src={next} alt="next"></img>
                                         </button>
+                                        : this.props.book.pageInfo.nextPage === "" ?
+                                            <button className="page-link " aria-label="Previous" disabled>
+                                                <img src={next} alt="prev"></img>
+                                                <img src={next} alt="next"></img>
+                                            </button>
+                                            : <button className="page-link " aria-label="Previous" onClick={() =>
+                                                this.props.PageCreator(this.props.book.pageInfo.nextPage)}>
+                                                <img src={next} alt="next"></img>
+                                                <img src={next} alt="next"></img>
+                                            </button>
                                     }
                                 </li>
                             </ul>

@@ -19,14 +19,14 @@ const Corousel = (props) => {
                     <div id="carouselExampleCaptions" className="carousel slide shadow" data-ride="carousel">
                         <div className="carousel-inner shadow">
                             <div className="carousel-item active">
-                                <img src="https://sweatpantsandcoffee.com/wp-content/uploads/2018/01/She-reads-940x450.png" className="d-block w-100" alt="..." />
+                                <img src="https://hildakweisburg.files.wordpress.com/2016/03/reading-is-a-window.jpg" className="d-block w-100" alt="..." />
                                 <div className="carousel-caption">
                                     <h5>HAPPY READING</h5>
                                 </div>
                             </div>
-                            {!props.book.data.length ?
+                            {props.book.data === undefined ?
                                 <div className="carousel-item active">
-                                    <img src="https://sweatpantsandcoffee.com/wp-content/uploads/2018/01/She-reads-940x450.png" className="d-block w-100" alt="..." />
+                                    <img src="https://hildakweisburg.files.wordpress.com/2016/03/reading-is-a-window.jpg" className="d-block w-100" alt="..." />
                                     <div className="carousel-caption">
                                         <h5>HAPPY READING</h5>
                                     </div>

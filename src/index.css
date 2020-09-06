@@ -389,6 +389,12 @@ main .topslider {
 }
 .listbook .row .card .card-body {
   font-size: small;
+  white-space: normal;
+  /* overflow: hidden; */
+text-overflow: ellipsis;
+padding-top: 2vh;
+
+  
 }
 .listbook .row .card .card-body .bt {
   font-size: 16px;
@@ -444,17 +450,20 @@ main .topslider {
 }
 .pagination .page-item button img{
  margin-right: -10px;
- width: 4vw;
+ width: 2vw;
 }
 
 .spinner{
   width: 100%;
 }
 .spinner .col-12{
-  display: flex;
+  text-align: center;
+  /* display: flex; */
   justify-content: center;
 }
-
+ .spinner.empty img{
+   width: 20vw;
+ }
 
 
 /* responsive */

@@ -2,6 +2,8 @@ import {
     getBookAction,
     addDetailAction,
     delBookAction,
+    editDetailAction,
+    searchAction,
     pageAction,
     pending,
     fulfilled,
@@ -34,13 +36,13 @@ const book = (prevState = initialState, {type, payload}) => {
                 isPending: false
             };
         case getBookAction + fulfilled:
-            console.log(payload)
+            console.log(payload);
             return {
                 ...prevState,
                 isfulfilled: true,
                 data: payload.data.data,
                 isPending: false,
-                pageInfo:payload.data.pageInfo
+                pageInfo: payload.data.pageInfo
             };
         case addDetailAction:
 
@@ -55,17 +57,38 @@ const book = (prevState = initialState, {type, payload}) => {
                 };
 
             }
-        case delBookAction:
-            return{
+        case editDetailAction:
+            return {
                 ...prevState,
-            }
+                bookDetail: {...payload}
+            };
+
+        case delBookAction:
+            return {
+                ...prevState,
+            };
         case pageAction + fulfilled:
-            return{
+            return {
                 ...prevState,
                 data: payload.data.data,
                 pageInfo: payload.data.pageInfo
-            }
+            };
 
+        case searchAction + pending:
+            return{
+                ...prevState,
+                isPending: true,
+                isfulfilled: false
+            }
+        case searchAction + fulfilled:
+            return{
+                ...prevState,
+                data: payload.data.data,
+                pageInfo: payload.data.pageInfo,
+                isPending: false,
+                isfulfilled: true
+
+            }
         default:
             return prevState;
     }

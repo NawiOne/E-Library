@@ -20,7 +20,7 @@ const Content = (props) => {
                     </div>
                     <div className="row description">
                         <div className="col-sm-8">
-                            <p>{props.book.bookDetail.synopsis}</p>
+                            <p className="text-break">{props.book.bookDetail.synopsis}</p>
                         </div>
                         <div className="col-sm-4 borrow">
                             <button type="button" className="btn btn-warning">Borrow</button>

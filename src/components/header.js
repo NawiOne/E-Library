@@ -7,6 +7,7 @@ import arrow from '../assets/images/arrow.png';
 
 import {connect} from 'react-redux';
 import {clickLeftBarCreator, clickNavcreator} from '../redux/actions/animate';
+import {searchBookCreator} from '../redux/actions/book'
 
 
 
@@ -21,9 +22,11 @@ const Header = (props) => {
                 <div className='drop ml-5'>
                     <select className="" id="">
                         <option>All Categories</option>
-                        <option>Romance</option>
-                        <option>Action</option>
-                        <option>Science fiction</option>
+                        <option>Comic</option>
+                        <option>History</option>
+                        <option>Novel</option>
+                        <option>Religion</option>
+                        <option>Scientific</option>
                     </select>
                     <select className="right" id="">
                         <option>All times</option>
@@ -36,7 +39,11 @@ const Header = (props) => {
                 </div>
                 <div className='input search'>
                     <img src={glass} alt='logo' />
-                    <input className='form-control' type='text' placeholder='search' />
+                    <input className='form-control' type='text' placeholder='search' onKeyPress={(event) =>{
+                        if(event.key === 'Enter'){
+                            props.searchBookCreator(event.target.value)
+                        }
+                    }}/>
                 </div>
                 <li className='nav-item arrow' onClick={() => props.clickNavcreator()}>
                     <img src={arrow} alt='logo' />
@@ -81,6 +88,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         clickLeftBarCreator: () => {
             dispatch(clickLeftBarCreator());
+        },
+        searchBookCreator : (title) =>{
+            dispatch(searchBookCreator(title))
         }
     };
 };

@@ -9,7 +9,7 @@ class ModalAdd extends React.Component {
     author: '',
     synopsis: '',
     release_year: null,
-    genre_id: null,
+    genre_id: 1,
     books_qty: null,
     image: null,
 

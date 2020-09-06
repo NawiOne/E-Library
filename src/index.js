@@ -5,21 +5,21 @@ import "./index.css";
 import App from './App';
 import {Provider} from 'react-redux';
 import * as serviceWorker from "./serviceWorker";
-import {store} from './redux/store';
-// import { PersistGate } from 'redux-persist/integration/react';
+import {store, persistor} from './redux/store';
+import {PersistGate} from 'redux-persist/integration/react';
 
 const AppRedux = () => {
-  return(
+  return (
     <Provider store={store}>
-    
-        <App/>
- 
-  </Provider>
-  )
-}
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>
+  );
+};
 ReactDOM.render(
   <React.StrictMode>
-    <AppRedux/>
+    <AppRedux />
   </React.StrictMode>,
   document.getElementById("root")
 );

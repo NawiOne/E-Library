@@ -13,3 +13,8 @@ export const pageBook = (params) =>{
     const url = 'http://localhost:2300';
     return Axios.get(`${url}${params}`)
 }
+
+export const searchBook = (title) =>{
+    const url = process.env.REACT_APP_BOOK
+    return Axios.get(`${url}?page=1&limit=6&title=${title}&sortby=title&order=ASC`)
+}

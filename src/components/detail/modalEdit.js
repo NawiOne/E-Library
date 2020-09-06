@@ -1,7 +1,7 @@
 import React from "react";
 import Axios from "axios";
 import {connect} from 'react-redux';
-import {getBookCreator} from '../../redux/actions/book';
+import {getBookCreator, editDetailCreator} from '../../redux/actions/book';
 
 class ModalAdd extends React.Component {
   state = {
@@ -9,7 +9,7 @@ class ModalAdd extends React.Component {
     author: this.props.book.bookDetail.author,
     synopsis: this.props.book.bookDetail.synopsis,
     release_year: this.props.book.bookDetail.realease_year,
-    genre_id: null,
+    genre_id: 4,
     books_qty: this.props.book.bookDetail.qty,
     image: this.props.book.bookDetail.image,
 
@@ -46,7 +46,6 @@ class ModalAdd extends React.Component {
   render() {
     return (
       <>
-      {console.log(this.props.book.bookDetail.id)}
         <div className="modal add fade" id="modal-edit" tabIndex="-1" aria-labelledby="modal-add" aria-hidden="true">
           <div className="modal-dialog  modal-dialog-scrollable modal-dialog-centered">
             <div className="modal-content">
@@ -91,7 +90,7 @@ class ModalAdd extends React.Component {
                     <label htmlFor="genre">Genre</label>
                   </div>
                   <div className="col-10">
-                    <select class="form-control" id="genre" name="genre" 
+                    <select className="form-control" id="genre" name="genre"
                       onChange={(event) => this.setState({genre_id: event.target.value})}>
                       <option value="2">Biography</option>
                       <option value="5">Comic</option>
@@ -132,7 +131,18 @@ class ModalAdd extends React.Component {
                 </div>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn  btn-pink btn-save" data-dismiss="modal" onClick={() => this.handleSubmit(this.props.book.bookDetail.id)}>Save</button>
+                <button type="button" className="btn  btn-pink btn-save" data-dismiss="modal" onClick={() => {
+                  this.handleSubmit(this.props.book.bookDetail.id);
+                  this.props.editDetailCreator(
+                    this.state.title,
+                    this.props.book.bookDetail.genre,
+                    this.state.image,
+                    this.state.release_year,
+                    this.state.synopsis,
+                    this.state.author,
+                    this.state.books_qty,
+                  );
+                }}>Save</button>
               </div>
             </div>
           </div>
@@ -153,6 +163,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getBookCreator: () => {
       dispatch(getBookCreator());
+    },
+    editDetailCreator: (title, genre, image, year, synopsis, author, qty) => {
+      dispatch(editDetailCreator(title, genre, image, year, synopsis, author, qty));
     }
   };
 };
