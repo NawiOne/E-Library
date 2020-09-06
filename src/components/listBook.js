@@ -39,13 +39,14 @@ class ListBook extends React.Component {
                                                     item.release_year,
                                                     item.synopsis,
                                                     item.author,
-                                                    item.books_qty
+                                                    item.books_qty,
+                                                    item.genre_id
                                                 )
                                                 } />
                                             </Link>
                                             <div className="card-body p-3">
                                                 <p className="bt text-center">{item.title}</p>
-                                                <p className="card-text">{item.synopsis}</p>
+                                                <p className="card-text">{item.synopsis.substring(0,45) + "....   CONTINUE"}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -126,8 +127,8 @@ const mapDispatchToProps = (dispatch) => {
         getBookCreator: (book) => {
             dispatch(getBookCreator(book));
         },
-        addDetailCreator: (id, title, genre, image, year, synopsis, author, qty) => {
-            dispatch(addDetailCreator(id, title, genre, image, year, synopsis, author, qty));
+        addDetailCreator: (id, title, genre, image, year, synopsis, author, qty, genre_id) => {
+            dispatch(addDetailCreator(id, title, genre, image, year, synopsis, author, qty, genre_id));
         },
         PageCreator: (params) => {
             dispatch(PageCreator(params));

@@ -4,12 +4,13 @@ import {connect} from 'react-redux';
 import {getBookCreator, editDetailCreator} from '../../redux/actions/book';
 
 class ModalAdd extends React.Component {
+
   state = {
     title: this.props.book.bookDetail.title,
     author: this.props.book.bookDetail.author,
     synopsis: this.props.book.bookDetail.synopsis,
     release_year: this.props.book.bookDetail.realease_year,
-    genre_id: 4,
+    genre_id: this.props.book.bookDetail.genre_id,
     books_qty: this.props.book.bookDetail.qty,
     image: this.props.book.bookDetail.image,
 

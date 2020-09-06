@@ -29,6 +29,7 @@ code {
 }
 
 main {
+  top: -2vh;
   position: relative;
   overflow-x: hidden;
   height: 100vh;
@@ -288,7 +289,7 @@ main .topslider {
 
 /* Carousel */
 .corousel {
-  margin-top: 65px;
+  margin-top: 60px;
   padding: 20px 0;
   display: flex;
   justify-content: space-between;
@@ -504,8 +505,11 @@ padding-top: 2vh;
  
 }
 @media screen and (max-width: 576px) {
+  main{
+    top: -5vh;
+  }
   .corousel {
-    margin-top: 40px;
+
     padding: 0;
   }
   .corousel .next,

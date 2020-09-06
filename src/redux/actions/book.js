@@ -8,7 +8,7 @@ export const getBookCreator = () => {
     };
 };
 
-export const addDetailCreator = (id, title, genre, image, year, synopsis, author, qty) => {
+export const addDetailCreator = (id, title, genre, image, year, synopsis, author, qty, genre_id) => {
     return {
         type: addDetailAction,
         payload: {
@@ -19,12 +19,13 @@ export const addDetailCreator = (id, title, genre, image, year, synopsis, author
             realease_year: year,
             synopsis: synopsis,
             author: author,
-            qty: qty
+            qty: qty,
+            genre_id: genre_id
         }
     };
 };
 
-export const editDetailCreator = (title, genre, image, year, synopsis, author, qty) => {
+export const editDetailCreator = (title, genre, image, year, synopsis, author, qty ) => {
     return {
         type: editDetailAction,
         payload: {
@@ -34,7 +35,8 @@ export const editDetailCreator = (title, genre, image, year, synopsis, author, q
             realease_year: year,
             synopsis: synopsis,
             author: author,
-            qty: qty
+            qty: qty,
+            
         }
     };
 };
@@ -54,8 +56,6 @@ export const searchBookCreator = (title) => {
         payload: searchBook(title)
     };
 };
-
-
 
 export const PageCreator = (params) => {
     return {

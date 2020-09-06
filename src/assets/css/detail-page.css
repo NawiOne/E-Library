@@ -80,6 +80,9 @@ body {
   display: flex;
   align-items: center;
 }
+.detail-page .status .not-avail {
+  color: #f81919;
+}
 .detail-page .content .category {
     margin-bottom: 5px;
   color: white;

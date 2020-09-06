@@ -2,21 +2,30 @@ import React from "react";
 import {connect} from 'react-redux';
 
 const NavHide = (props) => {
+    let years = [];
+    const date = new Date();
+    let year = date.getFullYear();
+    for(let i = 2005;i <= year;i++) {
+        years.push(i);
+    }
     return (
-        <div className={props.animate.navDisplay ?'nav-hide shadow show' : 'nav-hide shadow '}>
+        <div className={props.animate.navDisplay ? 'nav-hide shadow show' : 'nav-hide shadow '}>
             <select className="" id="">
                 <option>All Categories</option>
-                <option>Romance</option>
-                <option>Action</option>
-                <option>Science fiction</option>
+                <option>Comic</option>
+                <option>History</option>
+                <option>Novel</option>
+                <option>Religion</option>
+                <option>Scientific</option>
             </select>
             <select className="" id="">
-                <option>All times</option>
-                <option>2010</option>
-                <option>2015</option>
-                <option>2017</option>
-                <option>2020</option>
-            </select>       
+                <option>All Times</option>
+                {years.map((year) => {
+                    return (
+                        <option key={year}>{year}</option>
+                    );
+                })}
+            </select>
         </div>
     );
 };
@@ -28,4 +37,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps,null)(NavHide);
+export default connect(mapStateToProps, null)(NavHide);

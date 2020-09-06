@@ -20,7 +20,7 @@ class Home extends React.Component {
           <RightBar />
           <Header />
           <NavHide/>
-          <main className='dddd'>
+          <main>
             <div className='row topslider'>
               {/*<TopSlider/>*/} 
               <Corousel key={2323}/>

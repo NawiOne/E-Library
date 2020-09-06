@@ -49,6 +49,7 @@ const book = (prevState = initialState, {type, payload}) => {
             if(payload.id === prevState.bookDetail.id) {
                 return {
                     ...prevState,
+                    bookDetail: {...payload}
                 };
             } else {
                 return {

@@ -14,7 +14,7 @@ import ModalDel from '../components/detail/modalDel';
 class DetailPage extends React.Component {
     render() {
         return (
-            <>
+            <>      {console.log(this.props.history)}
                 <ModalEdit />
                 <ModalDel />
                 <div className="detail-page">
@@ -34,7 +34,7 @@ class DetailPage extends React.Component {
                     </nav>
                     <Header />
                     <div className="content">
-                        <Content />
+                        <Content/>
                     </div>
                 </div>
             </>

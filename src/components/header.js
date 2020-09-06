@@ -1,21 +1,32 @@
 import React from 'react';
+
+import {connect} from 'react-redux';
+import {clickLeftBarCreator, clickNavcreator} from '../redux/actions/animate';
+import {searchBookCreator} from '../redux/actions/book';
+
+
 import Liblogo from "../assets/images/liblogo.png";
 import glass from "../assets/images/glass.png";
 import menu from '../assets/images/menu.png';
 import "../index.css";
 import arrow from '../assets/images/arrow.png';
 
-import {connect} from 'react-redux';
-import {clickLeftBarCreator, clickNavcreator} from '../redux/actions/animate';
-import {searchBookCreator} from '../redux/actions/book'
-
 
 
 const Header = (props) => {
+    let years = []
+    const date = new Date();
+    let year = date.getFullYear();
+    for(let i = 2005; i <= year; i++){
+        years.push(i)
+    }
+  
+
     return (
         <>
-            <ul className={!props.animate.navDisplay ?  'nav header nav-pills d-flex justify-content-between shadow p-2 fixed-top'
-        : 'nav header nav-pills d-flex justify-content-between p-2 fixed-top'}>
+            c{console.log(years)}
+            <ul className={!props.animate.navDisplay ? 'nav header nav-pills d-flex justify-content-between shadow p-2 fixed-top'
+                : 'nav header nav-pills d-flex justify-content-between p-2 fixed-top'}>
                 <li className='nav-item menu ml-2 ' onClick={() => props.clickLeftBarCreator()}>
                     <img src={menu} alt="menu"></img>
                 </li>
@@ -29,21 +40,22 @@ const Header = (props) => {
                         <option>Scientific</option>
                     </select>
                     <select className="right" id="">
-                        <option>All times</option>
-                        <option>2010</option>
-                        <option>2015</option>
-                        <option>2017</option>
-                        <option>2020</option>
+                        <option>All Times</option>
+                        {years.map((year) =>{
+                            return(
+                                <option key={year}>{year}</option>
+                            )
+                        })}
                     </select>
 
                 </div>
                 <div className='input search'>
                     <img src={glass} alt='logo' />
-                    <input className='form-control' type='text' placeholder='search' onKeyPress={(event) =>{
-                        if(event.key === 'Enter'){
-                            props.searchBookCreator(event.target.value)
+                    <input className='form-control' type='text' placeholder='search' onKeyPress={(event) => {
+                        if(event.key === 'Enter') {
+                            props.searchBookCreator(event.target.value);
                         }
-                    }}/>
+                    }} />
                 </div>
                 <li className='nav-item arrow' onClick={() => props.clickNavcreator()}>
                     <img src={arrow} alt='logo' />
@@ -62,9 +74,6 @@ const Header = (props) => {
                     <li className='nav-item'>
                         <button
                             className='nav-link lib'
-                            href='home'
-                            tabIndex='-1'
-                            aria-disabled='true'
                         >
                             Library
                     </button>
@@ -74,12 +83,12 @@ const Header = (props) => {
         </>
     );
 };
-const mapStateToProps= (state) =>{
+const mapStateToProps = (state) => {
     const {animate} = state;
-    return{
+    return {
         animate,
-    }
-}
+    };
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -89,8 +98,8 @@ const mapDispatchToProps = (dispatch) => {
         clickLeftBarCreator: () => {
             dispatch(clickLeftBarCreator());
         },
-        searchBookCreator : (title) =>{
-            dispatch(searchBookCreator(title))
+        searchBookCreator: (title) => {
+            dispatch(searchBookCreator(title));
         }
     };
 };
