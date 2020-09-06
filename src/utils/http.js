@@ -18,7 +18,14 @@ export const searchBook = (title) =>{
     const url = process.env.REACT_APP_BOOK
     return Axios.get(`${url}?page=1&limit=6&title=${title}&sortby=title&order=ASC`)
 }
-// export const sortByCAt = (cat) =>{
+
+// export const searchByGenre = (id) =>{
 //     const url = process.env.REACT_APP_BOOK
-//     return Axios.get(`${url}?page=1&limit=6&sortby=${cat}&order=ASC`)
+//     return Axios.get(`${url}?page=1&limit=6&genre_id=${id}sortby=title&order=ASC`)
 // }
+
+// export const searchByYear= (year) =>{
+//     const url = process.env.REACT_APP_BOOK
+//     return Axios.get(`${url}?page=1&limit=6&release_year=${year}sortby=title&order=ASC`)
+// }
+

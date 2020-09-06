@@ -2,7 +2,7 @@ import React from 'react';
 
 import {connect} from 'react-redux';
 import {clickLeftBarCreator, clickNavcreator} from '../redux/actions/animate';
-import {searchBookCreator} from '../redux/actions/book';
+import {searchBookCreator, getBookCreator} from '../redux/actions/book';
 
 
 import Liblogo from "../assets/images/liblogo.png";
@@ -14,6 +14,7 @@ import arrow from '../assets/images/arrow.png';
 
 
 const Header = (props) => {
+
     let years = []
     const date = new Date();
     let year = date.getFullYear();
@@ -24,7 +25,6 @@ const Header = (props) => {
 
     return (
         <>
-            c{console.log(years)}
             <ul className={!props.animate.navDisplay ? 'nav header nav-pills d-flex justify-content-between shadow p-2 fixed-top'
                 : 'nav header nav-pills d-flex justify-content-between p-2 fixed-top'}>
                 <li className='nav-item menu ml-2 ' onClick={() => props.clickLeftBarCreator()}>
@@ -54,13 +54,14 @@ const Header = (props) => {
                     <input className='form-control' type='text' placeholder='search' onKeyPress={(event) => {
                         if(event.key === 'Enter') {
                             props.searchBookCreator(event.target.value);
+                            
                         }
-                    }} />
+                    }}/>
                 </div>
                 <li className='nav-item arrow' onClick={() => props.clickNavcreator()}>
                     <img src={arrow} alt='logo' />
                 </li>
-                <div className='logo'>
+                <div className='logo' onClick={() => props.getBookCreator()}>
                     <li className='nav-item' >
                         <button
                             className='nav-link lib'
@@ -84,9 +85,10 @@ const Header = (props) => {
     );
 };
 const mapStateToProps = (state) => {
-    const {animate} = state;
+    const {animate, book} = state;
     return {
         animate,
+        book
     };
 };
 
@@ -100,6 +102,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         searchBookCreator: (title) => {
             dispatch(searchBookCreator(title));
+        },
+        getBookCreator : (book)=>{
+            dispatch(getBookCreator(book))
         }
     };
 };

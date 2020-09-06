@@ -6,7 +6,6 @@ import next from '../assets/images/next.png';
 import prev from '../assets/images/prev.png';
 
 const Corousel = (props) => {
-
  
         return (
             <>
@@ -61,6 +60,7 @@ const Corousel = (props) => {
                 </div>
             </>
         );
+                            
 };
 const mapDispatchToProps = (dispatch) => {
     return {

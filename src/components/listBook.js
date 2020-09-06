@@ -6,7 +6,7 @@ import {getBookCreator, addDetailCreator, PageCreator} from '../redux/actions/bo
 import next from '../assets/images/next.png';
 import prev from '../assets/images/prev.png';
 import spinner from '../assets/images/Spinner.gif';
-import empty from '../assets/images/bookEmpty.jpg'
+import empty from '../assets/images/bookEmpty.jpg';
 
 
 
@@ -26,32 +26,39 @@ class ListBook extends React.Component {
                 <div className="row">
                     {this.props.book.isfulfilled === true ?
                         this.props.book.data !== undefined ?
-                            this.props.book.data.map((item) => {
-                                return (
-                                    <div className="col-12 col-sm-6 col-md-4 item" key={item.id}>
-                                        <div className="card shadow">
-                                            <Link to="/detail" className="link-to bg-info">
-                                                <img src={item.image} className="card-img-top" alt="..." onClick={() => this.props.addDetailCreator(
-                                                    item.id,
-                                                    item.title,
-                                                    item.genre,
-                                                    item.image,
-                                                    item.release_year,
-                                                    item.synopsis,
-                                                    item.author,
-                                                    item.books_qty,
-                                                    item.genre_id
-                                                )
-                                                } />
-                                            </Link>
-                                            <div className="card-body p-3">
-                                                <p className="bt text-center">{item.title}</p>
-                                                <p className="card-text">{item.synopsis.substring(0,45) + "....   CONTINUE"}</p>
+                            this.props.book.data.length === 0 ?
+                                <div className="row spinner empty" onClick={() => this.props.getBookCreator()}>
+                                    <div className="col-12 mt-5">
+                                        <img src={empty} alt="spinner" />
+                                    </div>
+                                </div>
+                                : this.props.book.data.map((item) => {
+                                    return (
+                                        <div className="col-12 col-sm-6 col-md-4 item" key={item.id}>
+                                            <div className="card shadow">
+                                                <Link to="/detail" className="link-to">
+                                                    <img src={item.image} className="card-img-top" alt="..." onClick={() => this.props.addDetailCreator(
+                                                        item.id,
+                                                        item.title,
+                                                        item.genre,
+                                                        item.image,
+                                                        item.release_year,
+                                                        item.synopsis,
+                                                        item.author,
+                                                        item.books_qty,
+                                                        item.genre_id
+                                                    )
+                                                    } />
+                                                </Link>
+                                                <div className="card-body p-3">
+                                                    <p className="bt text-center">{item.title}</p>
+                                                    <p className="card-text">{item.synopsis.substring(0, 45) + "....   CONTINUE"}</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                );
-                            }) : <div className="row spinner empty" onClick={() => this.props.getBookCreator()}>
+                                    );
+                                })
+                            : <div className="row spinner empty" onClick={() => this.props.getBookCreator()}>
                                 <div className="col-12">
                                     <img src={empty} alt="spinner" />
                                 </div>
@@ -68,22 +75,22 @@ class ListBook extends React.Component {
                         <nav aria-label="Page navigation example ">
                             <ul className="pagination pagination-lg">
                                 <li className="page-item">
-                                {this.props.book.pageInfo === undefined ?
-                                    <button className="page-link " aria-label="Previous" disabled>
-                                        <img src={prev} alt="prev"></img>
-                                        <img src={prev} alt="next"></img>
-                                    </button>
-                                    : this.props.book.pageInfo.prevPage === "" ?
+                                    {this.props.book.pageInfo === undefined ?
                                         <button className="page-link " aria-label="Previous" disabled>
                                             <img src={prev} alt="prev"></img>
                                             <img src={prev} alt="next"></img>
                                         </button>
-                                        : <button className="page-link " aria-label="Previous" onClick={() =>
-                                            this.props.PageCreator(this.props.book.pageInfo.prevPage)}>
-                                            <img src={prev} alt="next"></img>
-                                            <img src={prev} alt="next"></img>
-                                        </button>
-                                }
+                                        : this.props.book.pageInfo.prevPage === "" ?
+                                            <button className="page-link " aria-label="Previous" disabled>
+                                                <img src={prev} alt="prev"></img>
+                                                <img src={prev} alt="next"></img>
+                                            </button>
+                                            : <button className="page-link " aria-label="Previous" onClick={() =>
+                                                this.props.PageCreator(this.props.book.pageInfo.prevPage)}>
+                                                <img src={prev} alt="next"></img>
+                                                <img src={prev} alt="next"></img>
+                                            </button>
+                                    }
                                 </li>
                                 <li className="page-item">
                                     {this.props.book.pageInfo === undefined ?
