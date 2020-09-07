@@ -26,6 +26,9 @@ const RightBar = (props) => {
                     <li className="nav-item text-left" data-target="#modal-add" data-toggle="modal" onClick={props.clickLeftBarCreator}>
                         <button>Add Book*</button>
                     </li>
+                    <li className="nav-item text-left mt-5" >
+                        <button className="logout">Logout</button>
+                    </li>
                 </ul>
             </div>
         </div>

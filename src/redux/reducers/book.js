@@ -4,6 +4,8 @@ import {
     delBookAction,
     editDetailAction,
     searchAction,
+    searchGenreAction,
+    searchYearAction,
     pageAction,
     pending,
     fulfilled,
@@ -76,20 +78,56 @@ const book = (prevState = initialState, {type, payload}) => {
             };
 
         case searchAction + pending:
-            return{
+            return {
                 ...prevState,
                 isPending: true,
                 isfulfilled: false
-            }
+            };
         case searchAction + fulfilled:
-            return{
+            return {
                 ...prevState,
                 data: payload.data.data,
                 pageInfo: payload.data.pageInfo,
                 isPending: false,
                 isfulfilled: true
 
-            }
+            };
+
+        // belum dipake -----start
+        case searchGenreAction + pending:
+            return {
+                ...prevState,
+                isPending: true,
+                isfulfilled: false
+            };
+        case searchGenreAction + fulfilled:
+            return {
+                ...prevState,
+                data: payload.data.data,
+                pageInfo: payload.data.pageInfo,
+                isPending: false,
+                isfulfilled: true
+
+            };
+        case searchYearAction + pending:
+            return {
+                ...prevState,
+                isPending: true,
+                isfulfilled: false
+            };
+              
+        case searchYearAction + fulfilled:
+            return {
+                ...prevState,
+                data: payload.data.data,
+                pageInfo: payload.data.pageInfo,
+                isPending: false,
+                isfulfilled: true
+
+            };
+        //  belum dipake ------end 
+
+
         default:
             return prevState;
     }

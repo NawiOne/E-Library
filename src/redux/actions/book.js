@@ -1,5 +1,14 @@
-import {getBook, delBook, pageBook, searchBook} from '../../utils/http';
-import {getBookAction, addDetailAction, delBookAction, pageAction, editDetailAction, searchAction} from './actionType';
+import {getBook, delBook, pageBook, searchBook, searchByGenre, searchByYear} from '../../utils/http';
+import {
+    getBookAction,
+    addDetailAction,
+    delBookAction,
+    pageAction,
+    editDetailAction,
+    searchAction,
+    searchGenreAction,
+    searchYearAction,
+} from './actionType';
 
 export const getBookCreator = () => {
     return {
@@ -25,7 +34,7 @@ export const addDetailCreator = (id, title, genre, image, year, synopsis, author
     };
 };
 
-export const editDetailCreator = (title, genre, image, year, synopsis, author, qty ) => {
+export const editDetailCreator = (title, genre, image, year, synopsis, author, qty) => {
     return {
         type: editDetailAction,
         payload: {
@@ -36,7 +45,7 @@ export const editDetailCreator = (title, genre, image, year, synopsis, author, q
             synopsis: synopsis,
             author: author,
             qty: qty,
-            
+
         }
     };
 };
@@ -56,6 +65,24 @@ export const searchBookCreator = (title) => {
         payload: searchBook(title)
     };
 };
+
+// belum dipake
+export const searchGenreCreator = (id) =>{
+    return{
+        type: searchGenreAction,
+        payload: searchByGenre(id),
+    }
+}
+// belum dipake
+export const searchYearCreator = (year) =>{
+    return{
+        type: searchYearAction,
+        payload: searchByYear(year)
+    }
+}
+
+
+
 
 export const PageCreator = (params) => {
     return {

@@ -19,13 +19,15 @@ export const searchBook = (title) =>{
     return Axios.get(`${url}?page=1&limit=6&title=${title}&sortby=title&order=ASC`)
 }
 
-// export const searchByGenre = (id) =>{
-//     const url = process.env.REACT_APP_BOOK
-//     return Axios.get(`${url}?page=1&limit=6&genre_id=${id}sortby=title&order=ASC`)
-// }
 
-// export const searchByYear= (year) =>{
-//     const url = process.env.REACT_APP_BOOK
-//     return Axios.get(`${url}?page=1&limit=6&release_year=${year}sortby=title&order=ASC`)
-// }
+// belum dipake
+export const searchByGenre = (id) =>{
+    const url = process.env.REACT_APP_BOOK
+    return Axios.get(`${url}?page=1&limit=6&genre_id=${id}sortby=title&order=ASC`)
+}
+// belum dipake
+export const searchByYear= (year) =>{
+    const url = process.env.REACT_APP_BOOK
+    return Axios.get(`${url}?page=1&limit=6&release_year=${year}sortby=title&order=ASC`)
+}
 

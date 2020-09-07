@@ -202,6 +202,12 @@ main::-webkit-scrollbar {
   outline: none;
   background: none;
 }
+.right-bar button.logout {
+  color: white;
+  padding: 0.7vh;
+  border-radius: 5px;
+  background: rgb(3, 3, 3);
+}
 
 /* modal  */
 .modal.add .modal-header {
@@ -392,10 +398,8 @@ main .topslider {
   font-size: small;
   white-space: normal;
   /* overflow: hidden; */
-text-overflow: ellipsis;
-padding-top: 2vh;
-
-  
+  text-overflow: ellipsis;
+  padding-top: 2vh;
 }
 .listbook .row .card .card-body .bt {
   font-size: 16px;
@@ -428,12 +432,12 @@ padding-top: 2vh;
 }
 
 /* pagination */
-.pagination .col-12{
+.pagination .col-12 {
   display: flex;
   justify-content: center;
   padding: 0 5.5vw;
 }
-.pagination .page-item button{
+.pagination .page-item button {
   align-items: center;
   justify-content: center;
   display: flex;
@@ -442,32 +446,31 @@ padding-top: 2vh;
   height: 7vh;
   margin: 8px;
 }
-.pagination .page-item button:hover{
+.pagination .page-item button:hover {
   background-color: rgb(52, 153, 236);
 }
-.pagination .page-item button:focus{
+.pagination .page-item button:focus {
   outline: none;
   border: none;
   background-color: none;
 }
-.pagination .page-item button img{
- margin-right: -10px;
- width: 2vw;
+.pagination .page-item button img {
+  margin-right: -10px;
+  width: 2vw;
 }
 
-.spinner{
+.spinner {
   width: 100%;
 }
-.spinner .col-12{
+.spinner .col-12 {
   margin-bottom: 20vh;
   text-align: center;
   /* display: flex; */
   justify-content: center;
 }
- .spinner.empty img{
-   width: 20vw;
- }
-
+.spinner.empty img {
+  width: 20vw;
+}
 
 /* responsive */
 @media screen and (min-width: 768px) {
@@ -489,12 +492,9 @@ padding-top: 2vh;
     width: 78%;
     border-radius: 50%;
   }
-  .pagination .col-12{
+  .pagination .col-12 {
     justify-content: flex-start;
   }
-
- 
-
 }
 @media screen and (min-width: 576px) {
   .right-bar {
@@ -504,14 +504,12 @@ padding-top: 2vh;
   .corousel .carousel.slide {
     width: 40%;
   }
- 
 }
 @media screen and (max-width: 576px) {
-  main{
+  main {
     top: -5vh;
   }
   .corousel {
-
     padding: 0;
   }
   .corousel .next,
